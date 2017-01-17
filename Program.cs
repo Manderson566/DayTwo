@@ -57,6 +57,7 @@ namespace DayTwo
     {
         static void Main(string[] args)
         {
+            while ()
             Console.WriteLine("hi");
             var peanut = new Dog("Peanut");
             peanut.HappyBirthday();

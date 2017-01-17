@@ -10,6 +10,21 @@ namespace DayTwo
     {
         static void Main(string[] args)
         {
+            // NewMethod();
+            Warrior grom = new Warrior("Grommesh");
+            Warrior soap = new Warrior("Soap McTavish");
+
+            soap.Attack(grom);
+            Console.WriteLine(soap);
+            Console.WriteLine(grom);
+        }
+        public void Attack (Warrior enemy)
+        {
+
+        }
+
+        private static void NewMethod()
+        {
             Console.WriteLine("hi");
             var peanut = new Dog("Peanut");
             peanut.HappyBirthday();
@@ -28,7 +43,6 @@ namespace DayTwo
 
             var casey = new Dog("Casey");
             peanut.RemoveFridend(fido);
-
         }
     }
 }
