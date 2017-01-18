@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DayTwo
+
+namespace Day2
 {
     enum State
     {
@@ -22,23 +23,30 @@ namespace DayTwo
             name = _name;
             hp = 10;
         }
+
         public void LowerHP()
         {
-            if (hp < 1)
+            if (hp <= 3)
             {
-                Console.WriteLine($"{name} Player is dead");
+                Console.WriteLine($"{name} is Dead. Can't be attacked");
+                hp = 0;
+                currentState = State.Dead;
             }
             else
-            hp -= 3;
+            {
+                hp -= 3;
+            }
         }
 
         public void Attack(Warrior enemy)
         {
+            Console.WriteLine($"{name} attacked {enemy.name}!");
             enemy.LowerHP();
         }
+
         public override string ToString()
         {
-            return ($"{name} = {hp}");
+            return $"{name} : {hp}";
         }
     }
 }

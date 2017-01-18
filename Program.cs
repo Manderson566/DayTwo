@@ -4,77 +4,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DayTwo
+namespace Day2
 {
-    //Class Definition
-    class Dog
-    {
-       private int Age;
-        public string name;
-        public List<Dog> friends = new List<Dog>();
-
-        public Dog(string _name)
-        {
-            Age = 0;
-            name = _name;
-        }
-        public void AddFriend(Dog friend)
-        {
-            if (friends.Contains(friend))
-                {
-                Console.WriteLine($"Dog {friend} is already our friend");
-
-            }
-            friends.Add(friend);
-        }
-        public void HappyBirthday()
-        {
-            Age++;
-        }
-        public void RemoveFridend(Dog friend)
-        {
-            friends.Remove(friend);
-        }
-        public int GetAge()
-        {
-            return Age;
-        }
-        public int GetAgeDogYears()
-        {
-            return Age * 7;
-        }
-        public void GetFirend()
-        {
-
-        }
-        public void GetDogFirends()
-        {
-            friends.Add(friend);
-            Console.WriteLine(string.Join(",", friends));
-        }
-    }
     class Program
     {
         static void Main(string[] args)
         {
-            while ()
-            Console.WriteLine("hi");
+            // DogStuff();
+            Warrior gromm = new Warrior("Grommash");
+            Warrior soap = new Warrior("Soap McTavish");
+
+            while (gromm.currentState ==State.Alive)
+            {
+                soap.Attack(gromm);
+                gromm.Attack(soap);
+            }
+            Console.WriteLine(soap);
+            Console.WriteLine(gromm);
+
+            /*
+            Console.WriteLine(soap);
+            Console.WriteLine(gromm);
+            soap.Attack(gromm);
+            gromm.Attack(soap);
+            
+            soap.Attack(gromm);
+            soap.Attack(gromm);
+            soap.Attack(gromm);
+            soap.Attack(gromm);
+            soap.Attack(gromm);
+            Console.WriteLine(soap);
+            Console.WriteLine(gromm);
+            */
+        }
+
+        private static void DogStuff()
+        {
+            Console.WriteLine("it works");
             var peanut = new Dog("Peanut");
             peanut.HappyBirthday();
             peanut.HappyBirthday();
             peanut.HappyBirthday();
-            var age =peanut.GetAge();
+            peanut.HappyBirthday();
+            peanut.HappyBirthday();
+            var age = peanut.GetAge();
             var ageDogYears = peanut.GetAgeDogYears();
             Console.WriteLine(age);
             Console.WriteLine(ageDogYears);
-            Console.WriteLine(peanut.name);
-     
+            // Console.WriteLine(peanut.name);
+
+            var casey = new Dog("Casey");
+            var spaghetti = new Dog("Spaghetti");
+            spaghetti.HappyBirthday();
+            var rex = new Dog("Rex");
+
+            // Console.WriteLine(peanut);
+            peanut.AddFriend(casey);
+            peanut.AddFriend(spaghetti);
+            peanut.AddFriend(spaghetti);
+            peanut.AddFriend(rex);
+
+            peanut.GetDogFriends();
+            peanut.RemoveFriend(spaghetti);
+            peanut.GetDogFriends();
+
             Console.ReadLine();
-           
-            
-            {
-                
-            }
         }
     }
 }

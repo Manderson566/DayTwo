@@ -4,45 +4,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DayTwo
+namespace Day2
 {
-    class Program
+    // Class Definition
+    class Dog
     {
-        static void Main(string[] args)
-        {
-            // NewMethod();
-            Warrior grom = new Warrior("Grommesh");
-            Warrior soap = new Warrior("Soap McTavish");
+        private int Age;
+        public string name;
+        public List<Dog> friends = new List<Dog>();
 
-            soap.Attack(grom);
-            Console.WriteLine(soap);
-            Console.WriteLine(grom);
-        }
-        public void Attack (Warrior enemy)
+        public Dog(string _name)
         {
-
+            Age = 0;
+            name = _name;
         }
 
-        private static void NewMethod()
+        public void HappyBirthday()
         {
-            Console.WriteLine("hi");
-            var peanut = new Dog("Peanut");
-            peanut.HappyBirthday();
-            peanut.HappyBirthday();
-            peanut.HappyBirthday();
-            var age = peanut.GetAge();
-            var ageDogYears = peanut.GetAgeDogYears();
-            Console.WriteLine(age);
-            Console.WriteLine(ageDogYears);
-            Console.WriteLine(peanut.name);
-            Console.ReadLine();
+            Age++;
+        }
 
-            var casey = new Dog("Casey");
-            var billy = new Dog("Billy");
-            var fido = new Dog("Fido");
+        public int GetAge()
+        {
+            return Age;
+        }
 
-            var casey = new Dog("Casey");
-            peanut.RemoveFridend(fido);
+        public int GetAgeDogYears()
+        {
+            return Age * 7;
+        }
+
+        public void AddFriend(Dog friend)
+        {
+            if (friends.Contains(friend))
+            {
+                Console.WriteLine($"Dog {friend} is already our friend");
+            }
+            else
+            {
+                friends.Add(friend);
+            }
+        }
+
+        public void RemoveFriend(Dog friend)
+        {
+            friends.Remove(friend);
+        }
+
+        public void GetDogFriends()
+        {
+            Console.WriteLine(string.Join(", ", friends));
+        }
+
+        public override string ToString()
+        {
+            return $"{name}: {Age}";
         }
     }
 }
